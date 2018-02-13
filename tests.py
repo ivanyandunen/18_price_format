@@ -4,13 +4,13 @@ from format_price import format_price
 
 class Format_Price_Test(unittest.TestCase):
     def test1(self):
-        self.assertEqual(format_price(0.10), '0')
+        self.assertEqual(format_price(0.10), '0.10')
 
     def test2(self):
         self.assertEqual(format_price('12345,6789'), None)
 
     def test3(self):
-        self.assertEqual(format_price(-76543.21), '-76 543')
+        self.assertEqual(format_price(-76543.21), '-76 543.21')
 
     def test4(self):
         self.assertEqual(format_price(' '), None)
@@ -19,10 +19,10 @@ class Format_Price_Test(unittest.TestCase):
         self.assertEqual(format_price('-'), None)
 
     def test6(self):
-        self.assertEqual(format_price(0.), '0')
+        self.assertEqual(format_price(0.), '0.00')
 
     def test7(self):
-        self.assertEqual(format_price(.567), '1')
+        self.assertEqual(format_price(.567), '0.57')
 
     def test8(self):
         self.assertEqual(format_price('string'), None)
@@ -31,7 +31,7 @@ class Format_Price_Test(unittest.TestCase):
         self.assertEqual(format_price('23 657'), None)
 
     def test10(self):
-        self.assertEqual(format_price(12345.6789), '12 346')
+        self.assertEqual(format_price(12345.6789), '12 345.68')
 
 
 if __name__ == '__main__':

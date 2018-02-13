@@ -25,7 +25,7 @@ Ran 10 tests in 0.001s
 OK
 ```
 To use outside:
-```commandline
+```python
 from format_price import format_price
 
 format_price(price)
