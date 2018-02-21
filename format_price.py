@@ -3,7 +3,10 @@ import argparse
 
 def format_price(price):
     try:
-        return '{:,.2f}'.format(float(price)).replace(',', ' ')
+        if price - int(price) == 0:
+            return '{:,.0f}'.format(float(price)).replace(',', ' ')
+        else:
+            return '{:,.2f}'.format(float(price)).replace(',', ' ')
     except (ValueError, SyntaxError, TypeError):
         return None
 

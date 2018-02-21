@@ -19,7 +19,7 @@ class Format_Price_Test(unittest.TestCase):
         self.assertEqual(format_price('-'), None)
 
     def test6(self):
-        self.assertEqual(format_price(0.), '0.00')
+        self.assertEqual(format_price(0.), '0')
 
     def test7(self):
         self.assertEqual(format_price(.567), '0.57')
@@ -32,6 +32,9 @@ class Format_Price_Test(unittest.TestCase):
 
     def test10(self):
         self.assertEqual(format_price(12345.6789), '12 345.68')
+
+    def test11(self):
+        self.assertEqual(format_price(3245.000000), '3 245')
 
 
 if __name__ == '__main__':
