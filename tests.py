@@ -2,39 +2,33 @@ import unittest
 from format_price import format_price
 
 
-class Format_Price_Test(unittest.TestCase):
-    def test1(self):
+class FormatPriceTest(unittest.TestCase):
+    def integer_part_is_zero(self):
         self.assertEqual(format_price(0.10), '0.10')
 
-    def test2(self):
-        self.assertEqual(format_price('12345,6789'), None)
+    def decimal_part_is_zero(self):
+        self.assertEqual(format_price(3245.000000), '3 245')
 
-    def test3(self):
-        self.assertEqual(format_price(-76543.21), '-76 543.21')
+    def input_is_int(self):
+        self.assertEqual(format_price(12345), '12 345')
 
-    def test4(self):
-        self.assertEqual(format_price(' '), None)
-
-    def test5(self):
-        self.assertEqual(format_price('-'), None)
-
-    def test6(self):
-        self.assertEqual(format_price(0.), '0')
-
-    def test7(self):
-        self.assertEqual(format_price(.567), '0.57')
-
-    def test8(self):
-        self.assertEqual(format_price('string'), None)
-
-    def test9(self):
-        self.assertEqual(format_price('23 657'), None)
-
-    def test10(self):
+    def input_is_float(self):
         self.assertEqual(format_price(12345.6789), '12 345.68')
 
-    def test11(self):
-        self.assertEqual(format_price(3245.000000), '3 245')
+    def input_is_minus(self):
+        self.assertEqual(format_price(-76543.21), '-76 543.21')
+
+    def input_is_empty(self):
+        self.assertEqual(format_price(' '), None)
+
+    def input_without_decimal_part(self):
+        self.assertEqual(format_price(0.), '0')
+
+    def input_without_integer_part(self):
+        self.assertEqual(format_price(.567), '0.57')
+
+    def input_is_string(self):
+        self.assertEqual(format_price('string'), None)
 
 
 if __name__ == '__main__':
