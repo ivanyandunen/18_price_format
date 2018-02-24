@@ -7,7 +7,7 @@ def format_price(price):
             return '{:,.0f}'.format(price).replace(',', ' ')
         else:
             return '{:,.2f}'.format(price).replace(',', ' ')
-    except (ValueError, SyntaxError, TypeError):
+    except (ValueError, TypeError):
         return None
 
 
