@@ -19,7 +19,7 @@ class FormatPriceTest(unittest.TestCase):
         self.assertEqual(format_price(-76543.21), '-76 543.21')
 
     def input_is_empty(self):
-        self.assertEqual(format_price(' '), None)
+        self.assertIsNone(format_price(' '))
 
     def input_without_decimal_part(self):
         self.assertEqual(format_price(0.), '0')
@@ -28,7 +28,7 @@ class FormatPriceTest(unittest.TestCase):
         self.assertEqual(format_price(.567), '0.57')
 
     def input_is_string(self):
-        self.assertEqual(format_price('string'), None)
+        self.assertIsNone(format_price('string'))
 
 
 if __name__ == '__main__':
